@@ -1,0 +1,172 @@
+======================================================================
+IoT DEVICE CLASSIFICATION - EVALUATION REPORT
+======================================================================
+
+MODEL COMPARISON SUMMARY
+----------------------------------------------------------------------
+        Model  Accuracy  Precision (Macro)  Recall (Macro)  F1 (Macro)  F1 (Weighted)
+      xgboost  0.887780           0.844275        0.780635    0.782795       0.876899
+decision_tree  0.883609           0.828976        0.758649    0.774925       0.875060
+          knn  0.864109           0.783228        0.757275    0.767209       0.859070
+random_forest  0.884091           0.851891        0.716035    0.743020       0.871699
+     lightgbm  0.812649           0.607329        0.614460    0.596201       0.810355
+
+Best Performing Model: xgboost
+  Accuracy: 0.8878
+  F1-Score (Macro): 0.7828
+
+======================================================================
+DETAILED RESULTS: knn
+======================================================================
+Accuracy: 0.8641
+Precision (Macro): 0.7832
+Recall (Macro): 0.7573
+F1-Score (Macro): 0.7672
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        Audio       0.97      0.96      0.97     27191
+       Camera       0.89      0.85      0.87     33151
+          Hub       0.66      0.65      0.65      1843
+     Lighting       0.42      0.35      0.38       992
+Motion_Sensor       0.25      0.11      0.15      5092
+           PC       0.97      0.97      0.97     26451
+  PowerOutlet       0.95      0.96      0.95      1374
+        Scale       1.00      0.82      0.90        11
+ baby_monitor       0.71      0.77      0.74      2627
+ power_switch       0.87      0.89      0.88     13982
+      printer       0.93      0.93      0.93      2329
+       router       0.80      0.86      0.82     60853
+ sleep_sensor       0.63      0.58      0.60      1541
+   smartphone       0.92      0.90      0.91      9330
+
+     accuracy                           0.86    186767
+    macro avg       0.78      0.76      0.77    186767
+ weighted avg       0.86      0.86      0.86    186767
+
+
+======================================================================
+DETAILED RESULTS: lightgbm
+======================================================================
+Accuracy: 0.8126
+Precision (Macro): 0.6073
+Recall (Macro): 0.6145
+F1-Score (Macro): 0.5962
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        Audio       0.94      0.92      0.93     27191
+       Camera       0.91      0.76      0.83     33151
+          Hub       0.35      0.69      0.47      1843
+     Lighting       0.11      0.11      0.11       992
+Motion_Sensor       0.22      0.08      0.12      5092
+           PC       0.93      0.92      0.92     26451
+  PowerOutlet       0.81      0.49      0.61      1374
+        Scale       0.00      0.00      0.00        11
+ baby_monitor       0.67      0.82      0.74      2627
+ power_switch       0.82      0.87      0.84     13982
+      printer       0.83      0.74      0.78      2329
+       router       0.75      0.84      0.79     60853
+ sleep_sensor       0.31      0.64      0.42      1541
+   smartphone       0.84      0.75      0.79      9330
+
+     accuracy                           0.81    186767
+    macro avg       0.61      0.61      0.60    186767
+ weighted avg       0.82      0.81      0.81    186767
+
+
+======================================================================
+DETAILED RESULTS: random_forest
+======================================================================
+Accuracy: 0.8841
+Precision (Macro): 0.8519
+Recall (Macro): 0.7160
+F1-Score (Macro): 0.7430
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        Audio       0.98      0.97      0.97     27191
+       Camera       0.95      0.81      0.87     33151
+          Hub       0.79      0.66      0.72      1843
+     Lighting       0.72      0.15      0.24       992
+Motion_Sensor       0.50      0.02      0.03      5092
+           PC       0.98      0.99      0.99     26451
+  PowerOutlet       0.97      0.96      0.97      1374
+        Scale       1.00      0.45      0.62        11
+ baby_monitor       0.74      0.91      0.82      2627
+ power_switch       0.87      0.91      0.89     13982
+      printer       0.98      0.84      0.90      2329
+       router       0.79      0.93      0.85     60853
+ sleep_sensor       0.72      0.48      0.58      1541
+   smartphone       0.95      0.95      0.95      9330
+
+     accuracy                           0.88    186767
+    macro avg       0.85      0.72      0.74    186767
+ weighted avg       0.88      0.88      0.87    186767
+
+
+======================================================================
+DETAILED RESULTS: xgboost
+======================================================================
+Accuracy: 0.8878
+Precision (Macro): 0.8443
+Recall (Macro): 0.7806
+F1-Score (Macro): 0.7828
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        Audio       0.98      0.97      0.98     27191
+       Camera       0.95      0.80      0.87     33151
+          Hub       0.71      0.84      0.77      1843
+     Lighting       0.61      0.18      0.28       992
+Motion_Sensor       0.65      0.04      0.08      5092
+           PC       0.98      0.99      0.99     26451
+  PowerOutlet       0.97      0.98      0.97      1374
+        Scale       1.00      1.00      1.00        11
+ baby_monitor       0.75      0.90      0.82      2627
+ power_switch       0.87      0.93      0.90     13982
+      printer       0.94      0.84      0.89      2329
+       router       0.80      0.93      0.86     60853
+ sleep_sensor       0.65      0.58      0.61      1541
+   smartphone       0.96      0.95      0.95      9330
+
+     accuracy                           0.89    186767
+    macro avg       0.84      0.78      0.78    186767
+ weighted avg       0.89      0.89      0.88    186767
+
+
+======================================================================
+DETAILED RESULTS: decision_tree
+======================================================================
+Accuracy: 0.8836
+Precision (Macro): 0.8290
+Recall (Macro): 0.7586
+F1-Score (Macro): 0.7749
+
+Classification Report:
+               precision    recall  f1-score   support
+
+        Audio       0.98      0.97      0.97     27191
+       Camera       0.93      0.81      0.87     33151
+          Hub       0.77      0.89      0.83      1843
+     Lighting       0.59      0.39      0.47       992
+Motion_Sensor       0.41      0.07      0.12      5092
+           PC       0.98      0.98      0.98     26451
+  PowerOutlet       0.96      0.97      0.97      1374
+        Scale       1.00      0.45      0.62        11
+ baby_monitor       0.74      0.86      0.79      2627
+ power_switch       0.87      0.92      0.89     13982
+      printer       0.94      0.85      0.89      2329
+       router       0.80      0.91      0.85     60853
+ sleep_sensor       0.70      0.62      0.65      1541
+   smartphone       0.94      0.92      0.93      9330
+
+     accuracy                           0.88    186767
+    macro avg       0.83      0.76      0.77    186767
+ weighted avg       0.88      0.88      0.88    186767
+
+
