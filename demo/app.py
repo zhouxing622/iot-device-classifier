@@ -58,12 +58,19 @@ DEVICE_DESCRIPTIONS = {
     'smartphone': 'Mobile phones, tablets, portable devices'
 }
 
-if 'page' not in st.session_state:
-    st.session_state.page = 'upload'
-if 'results_df' not in st.session_state:
-    st.session_state.results_df = None
-if 'selected_device' not in st.session_state:
-    st.session_state.selected_device = None
+def init_session_state():
+    """Initialize session state variables safely."""
+    if 'page' not in st.session_state:
+        st.session_state.page = 'upload'
+    if 'results_df' not in st.session_state:
+        st.session_state.results_df = None
+    if 'selected_device' not in st.session_state:
+        st.session_state.selected_device = None
+
+
+def get_current_page():
+    """Get current page safely."""
+    return st.session_state.get('page', 'upload')
 
 
 def navigate_to(page, device=None):
@@ -482,15 +489,20 @@ def render_all_details_page():
 
 def main():
     """Main application entry point."""
+    # Initialize session state first
+    init_session_state()
+    
     render_sidebar()
     
-    if st.session_state.page == 'upload':
+    current_page = get_current_page()
+    
+    if current_page == 'upload':
         render_upload_page()
-    elif st.session_state.page == 'results':
+    elif current_page == 'results':
         render_results_page()
-    elif st.session_state.page == 'device_detail':
+    elif current_page == 'device_detail':
         render_device_detail_page()
-    elif st.session_state.page == 'all_details':
+    elif current_page == 'all_details':
         render_all_details_page()
     else:
         st.session_state.page = 'upload'
