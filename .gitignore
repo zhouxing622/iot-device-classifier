@@ -30,7 +30,7 @@ models/random_forest.joblib
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+# *.ipynb (notebooks folder is tracked)
 
 # Logs
 *.log
