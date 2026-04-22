@@ -470,7 +470,9 @@ def render_all_details_page():
     
     if ip_search and len(filtered_df) > 0:
         device_counts = filtered_df['Predicted_Device'].value_counts()
-        st.success(f"📱 IP `{ip_search}` identified as: **{device_counts.index[0]}** ({device_counts.values[0]} flows)")
+        top_device = device_counts.index[0]
+        device_icon = DEVICE_ICONS.get(top_device, '❓')
+        st.success(f"{device_icon} IP `{ip_search}` identified as: **{top_device}** ({device_counts.values[0]} flows)")
     
     st.markdown("---")
     
