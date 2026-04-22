@@ -448,13 +448,29 @@ def render_all_details_page():
         value=(0, 100)
     )
     
+    ip_search = st.text_input(
+        "🔍 Search by IP Address",
+        placeholder="e.g., 192.168.2.5",
+        help="Enter an IP address to find flows from/to that device"
+    )
+    
     filtered_df = df[
         (df['Predicted_Device'].isin(device_filter)) &
         (df['Confidence'] >= confidence_range[0]) &
         (df['Confidence'] <= confidence_range[1])
     ]
     
+    if ip_search:
+        filtered_df = filtered_df[
+            (filtered_df['_src_ip'].astype(str).str.contains(ip_search, na=False)) |
+            (filtered_df['_dst_ip'].astype(str).str.contains(ip_search, na=False))
+        ]
+    
     st.markdown(f"**Showing {len(filtered_df)} of {len(df)} flows**")
+    
+    if ip_search and len(filtered_df) > 0:
+        device_counts = filtered_df['Predicted_Device'].value_counts()
+        st.success(f"📱 IP `{ip_search}` identified as: **{device_counts.index[0]}** ({device_counts.values[0]} flows)")
     
     st.markdown("---")
     
