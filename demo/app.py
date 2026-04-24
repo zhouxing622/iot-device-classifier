@@ -462,8 +462,7 @@ def render_all_details_page():
     
     if ip_search:
         filtered_df = filtered_df[
-            (filtered_df['_src_ip'].astype(str).str.contains(ip_search, na=False)) |
-            (filtered_df['_dst_ip'].astype(str).str.contains(ip_search, na=False))
+            filtered_df['_src_ip'].astype(str).str.contains(ip_search, na=False)
         ]
     
     st.markdown(f"**Showing {len(filtered_df)} of {len(df)} flows**")
